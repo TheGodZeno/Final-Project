@@ -1,0 +1,230 @@
+@startuml
+
+title __VIEW's Class Diagram__\n
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class Assets {
+          {static} + logo : Pixmap
+          {static} + gamescreen : Pixmap
+          {static} + startscreen : Pixmap
+          {static} + highscoresscreen : Pixmap
+          {static} + gameoverscreen : Pixmap
+          {static} + mainmenu : Pixmap
+          {static} + pausemenu : Pixmap
+          {static} + readymenu : Pixmap
+          {static} + buttons : Pixmap
+          {static} + numbers : Pixmap
+          {static} + enemyShipBad1 : Pixmap
+          {static} + enemyShipBad2 : Pixmap
+          {static} + enemyShipUgly1 : Pixmap
+          {static} + enemyShipUgly2 : Pixmap
+          {static} + enemyShipGood1 : Pixmap
+          {static} + enemyShipGood2 : Pixmap
+          {static} + ship : Pixmap
+          {static} + shipLife : Pixmap
+          {static} + shieldLarge : Pixmap
+          {static} + shieldMedium : Pixmap
+          {static} + shieldSmall : Pixmap
+          {static} + shipProjectile : Pixmap
+          {static} + enemyShipProjectile : Pixmap
+          {static} + explosion : Sound
+          {static} + laserCanon : Sound
+          {static} + laserClash : Sound
+          {static} + shieldImpact : Sound
+          {static} + click : Sound
+          {static} + bitten : Sound
+          {static} + musicInvaders : Music
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class GameScreen {
+          {static} - LOG_TAG : String
+          - states : Map<GameState, GameState>
+          - isShipMovingLeft : boolean
+          - isShipMovingRight : boolean
+          - shipMovingLeftPointer : int
+          - shipMovingRightPointer : int
+          ~ context : Context
+          + GameScreen()
+          + update()
+          + draw()
+          + drawText()
+          + pause()
+          + GameScreen()
+          + resume()
+          + dispose()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      abstract class GameState {
+          {abstract} ~ update()
+          {abstract} ~ draw()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class GameRunning {
+          ~ update()
+          ~ draw()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class GamePaused {
+          ~ update()
+          ~ draw()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class GameReady {
+          ~ update()
+          ~ draw()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class GameOver {
+          ~ update()
+          ~ draw()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class HighscoreScreen {
+          ~ lines : String[]
+          + HighscoreScreen()
+          + update()
+          + draw()
+          + drawText()
+          + pause()
+          + resume()
+          + dispose()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class LoadingScreen {
+          {static} - LOG_TAG : String
+          + update()
+          + draw()
+          + pause()
+          + resume()
+          + dispose()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class SpaceInvadersGame {
+          + getStartScreen()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class SpaceInvadersWorldRenderer {
+          {static} ~ CELL_WIDTH_PIXEL : int
+          {static} ~ CELL_HEIGHT_PIXEL : int
+          - lastEnemyShipXPosition : int
+          - enemyShipMove : boolean
+          + SpaceInvadersWorldRenderer()
+          + draw()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class StartScreen {
+          + StartScreen()
+          + update()
+          + draw()
+          + pause()
+          + resume()
+          + dispose()
+      }
+    }
+  }
+  
+
+  GameScreen -up-|> Screen
+  GameScreen o-- Rectangle : gameoverScreenBounds
+  GameScreen o-- Rectangle : gameScreenBounds
+  GameScreen o-- Rectangle : pauseButtonBounds
+  GameScreen o-- Rectangle : leftButtonBounds
+  GameScreen o-- Rectangle : rightButtonBounds
+  GameScreen o-- Rectangle : shootButtonBounds
+  GameScreen o-- Rectangle : xButtonBounds
+  GameScreen o-- Rectangle : pauseMenuBounds
+  GameScreen o-- Rectangle : readyMenuBounds
+  GameScreen o-- Rectangle : homeMenuBounds
+  GameScreen o-- SpaceInvadersWorldRenderer : renderer
+  GameScreen o-- WorldListener : worldListener
+  GameScreen +-down- GameState
+  GameScreen +-down- GameRunning
+  GameScreen +-down- GamePaused
+  GameScreen +-down- GameReady
+  GameScreen +-down- GameOver
+  GameRunning -up-|> GameState
+  GamePaused -up-|> GameState
+  GameReady -up-|> GameState
+  GameOver -up-|> GameState
+  HighscoreScreen -up-|> Screen
+  HighscoreScreen o-- Rectangle : backgroundBounds
+  HighscoreScreen o-- Rectangle : backButtonBounds
+  LoadingScreen -up-|> Screen
+  SpaceInvadersGame -up-|> AndroidGame
+  SpaceInvadersWorldRenderer o-- Pixmap : enemyShipGood
+  SpaceInvadersWorldRenderer o-- Pixmap : enemyShipBad
+  SpaceInvadersWorldRenderer o-- Pixmap : enemyShipUgly
+  StartScreen -up-|> Screen
+  StartScreen o-- Rectangle : backgroundBounds
+  StartScreen o-- Rectangle : logoBounds
+  StartScreen o-- Rectangle : soundButtonBounds
+  StartScreen o-- Rectangle : mainMenuBounds
+  StartScreen o-- Rectangle : playMenuBounds
+  StartScreen o-- Rectangle : highscoresMenuBounds
+  StartScreen o-- Rectangle : quitMenuBounds
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

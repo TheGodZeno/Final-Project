@@ -1,0 +1,329 @@
+@startuml
+
+title __FRAMEWORK's Class Diagram__\n
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      class Actor {
+          # x : int
+          # y : int
+          # width : int
+          # height : int
+          + Actor()
+          + Actor()
+          + Actor()
+          + getX()
+          + setX()
+          + getY()
+          + setY()
+          + setPosition()
+          + moveBy()
+          + getWidth()
+          + setWidth()
+          + getHeight()
+          + setHeight()
+          + getBottom()
+          + getRight()
+          + setSize()
+          + setBounds()
+          + setBounds()
+          + getBounds()
+          + collide()
+          + collide()
+          + equals()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Audio {
+          {abstract} + newMusic()
+          {abstract} + newSound()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface FileIO {
+          {abstract} + readAsset()
+          {abstract} + readFile()
+          {abstract} + writeFile()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Game {
+          {abstract} + getInput()
+          {abstract} + getFileIO()
+          {abstract} + getGraphics()
+          {abstract} + getAudio()
+          {abstract} + setScreen()
+          {abstract} + getCurrentScreen()
+          {abstract} + getStartScreen()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      class Gdx {
+          {static} + game : Game
+          {static} + graphics : Graphics
+          {static} + audio : Audio
+          {static} + input : Input
+          {static} + fileIO : FileIO
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Graphics {
+          {abstract} + newPixmap()
+          {abstract} + clear()
+          {abstract} + drawPixel()
+          {abstract} + drawLine()
+          {abstract} + drawRect()
+          {abstract} + drawPixmap()
+          {abstract} + drawPixmap()
+          {abstract} + drawText()
+          {abstract} + getWidth()
+          {abstract} + getHeight()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      enum PixmapFormat {
+        ARGB8888
+        ARGB4444
+        RGB565
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Input {
+          {abstract} + isKeyPressed()
+          {abstract} + isTouchDown()
+          {abstract} + getTouchX()
+          {abstract} + getTouchY()
+          {abstract} + getAccelX()
+          {abstract} + getAccelY()
+          {abstract} + getAccelZ()
+          {abstract} + getKeyEvents()
+          {abstract} + getTouchEvents()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      class KeyEvent {
+          {static} + KEY_DOWN : int
+          {static} + KEY_UP : int
+          + type : int
+          + keyCode : int
+          + keyChar : char
+          + toString()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      class TouchEvent {
+          {static} + TOUCH_DOWN : int
+          {static} + TOUCH_UP : int
+          {static} + TOUCH_DRAGGED : int
+          + type : int
+          + x : int
+          + y : int
+          + pointer : int
+          + toString()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Music {
+          {abstract} + play()
+          {abstract} + stop()
+          {abstract} + pause()
+          {abstract} + setLooping()
+          {abstract} + setVolume()
+          {abstract} + isPlaying()
+          {abstract} + isStopped()
+          {abstract} + isLooping()
+          {abstract} + dispose()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Pixmap {
+          {abstract} + getWidth()
+          {abstract} + getHeight()
+          {abstract} + getFormat()
+          {abstract} + dispose()
+          {abstract} + getColor()
+          {abstract} + setColor()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      class Pool {
+          - freeObjects : List<T>
+          - factory : PoolObjectFactory<T>
+          - maxSize : int
+          + Pool()
+          + newObject()
+          + free()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface PoolObjectFactory {
+          {abstract} + createObject()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      class Rectangle {
+          # x : int
+          # y : int
+          # width : int
+          # height : int
+          + Rectangle()
+          + Rectangle()
+          + Rectangle()
+          + set()
+          + setPosition()
+          + setSize()
+          + contains()
+          + contains()
+          + overlaps()
+          + set()
+          + getX()
+          + setX()
+          + getY()
+          + setY()
+          + getWidth()
+          + setWidth()
+          + getHeight()
+          + setHeight()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Screen {
+          {abstract} + update()
+          {abstract} + draw()
+          {abstract} + pause()
+          {abstract} + resume()
+          {abstract} + dispose()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Sound {
+          {abstract} + play()
+          {abstract} + dispose()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      class TextStyle {
+          - color : int
+          - textSize : int
+          + getColor()
+          + setColor()
+          + getAlign()
+          + setAlign()
+          + getTextSize()
+          + setTextSize()
+          + getStyle()
+          + setStyle()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      enum Align {
+        LEFT
+        CENTER
+        RIGHT
+        JUSTIFY
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      enum Style {
+        NORMAL
+        BOLD
+        ITALIC
+      }
+    }
+  }
+  
+
+  Graphics +-down- PixmapFormat
+  Input +-down- KeyEvent
+  Input +-down- TouchEvent
+  Pool +-down- PoolObjectFactory
+  TextStyle o-- Align : align
+  TextStyle o-- Style : style
+  TextStyle +-down- Align
+  TextStyle +-down- Style
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

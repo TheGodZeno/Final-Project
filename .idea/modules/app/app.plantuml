@@ -1,0 +1,566 @@
+@startuml
+
+title __SPACE_INVADERS.APP's Class Diagram__\n
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AccelerometerHandler {
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      class Actor {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class AdminActivity {
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class AdminAddActivity {
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidAudio {
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidFastRenderView {
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidFileIO {
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        abstract class AndroidGame {
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidGraphics {
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidInput {
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidMusic {
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidPixmap {
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidSound {
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class Assets {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Audio {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class BadEnemyShip {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class BuildConfig {
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class CustomAdapter {
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class DBHelper {
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      abstract class EnemyShip {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class EnemyShipArmy {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class EnemyShipProjectile {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface FileIO {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Game {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class GameScreen {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      class Gdx {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class GoodEnemyShip {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Graphics {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class HighscoreScreen {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Input {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class KeyboardHandler {
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class LoadingScreen {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class LoginActivity {
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class MainActivity {
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class MultiTouchHandler {
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Music {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Pixmap {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      class Pool {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      abstract class Projectile {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      class Rectangle {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Screen {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class Settings {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class Shield {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class Ship {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class ShipProjectile {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class ShplashActivity {
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class SignUpActivity {
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class SingleTouchHandler {
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      interface Sound {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class SpaceInvadersGame {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class SpaceInvadersWorld {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class SpaceInvadersWorldRenderer {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.view {
+      class StartScreen {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      class TextStyle {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        interface TouchHandler {
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class UglyEnemyShip {
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class UpdateActivity {
+    }
+  }
+  
+
+  AccelerometerHandler -up-|> SensorEventListener
+  AdminActivity -up-|> AppCompatActivity
+  AdminActivity o-- DBHelper : dbHelper
+  AdminActivity o-- CustomAdapter : customAdapter
+  AdminAddActivity -up-|> AppCompatActivity
+  AndroidAudio -up-|> Audio
+  AndroidFastRenderView -up-|> Runnable
+  AndroidFastRenderView -up-|> SurfaceView
+  AndroidFastRenderView o-- AndroidGame : game
+  AndroidFileIO -up-|> FileIO
+  AndroidGame -up-|> Game
+  AndroidGame -up-|> Activity
+  AndroidGame o-- AndroidFastRenderView : renderView
+  AndroidGame o-- Graphics : graphics
+  AndroidGame o-- Audio : audio
+  AndroidGame o-- Input : input
+  AndroidGame o-- FileIO : fileIO
+  AndroidGame o-- Screen : screen
+  AndroidGraphics -up-|> Graphics
+  AndroidGraphics o-- AndroidFileIO : fileIO
+  AndroidInput -up-|> Input
+  AndroidInput o-- AccelerometerHandler : accelHandler
+  AndroidInput o-- KeyboardHandler : keyHandler
+  AndroidInput o-- TouchHandler : touchHandler
+  AndroidMusic -up-|> Music
+  AndroidMusic -up-|> OnCompletionListener
+  AndroidPixmap -up-|> Pixmap
+  AndroidPixmap o-- PixmapFormat : format
+  AndroidSound -up-|> Sound
+  BadEnemyShip -up-|> EnemyShip
+  CustomAdapter -up-|> Adapter
+  DBHelper -up-|> SQLiteOpenHelper
+  EnemyShip -up-|> Actor
+  EnemyShipArmy -up-|> Actor
+  EnemyShipProjectile -up-|> Projectile
+  GameScreen -up-|> Screen
+  GameScreen o-- Rectangle : gameoverScreenBounds
+  GameScreen o-- Rectangle : gameScreenBounds
+  GameScreen o-- Rectangle : pauseButtonBounds
+  GameScreen o-- Rectangle : leftButtonBounds
+  GameScreen o-- Rectangle : rightButtonBounds
+  GameScreen o-- Rectangle : shootButtonBounds
+  GameScreen o-- Rectangle : xButtonBounds
+  GameScreen o-- Rectangle : pauseMenuBounds
+  GameScreen o-- Rectangle : readyMenuBounds
+  GameScreen o-- Rectangle : homeMenuBounds
+  GameScreen o-- SpaceInvadersWorldRenderer : renderer
+  GameScreen o-- WorldListener : worldListener
+  GoodEnemyShip -up-|> EnemyShip
+  HighscoreScreen -up-|> Screen
+  HighscoreScreen o-- Rectangle : backgroundBounds
+  HighscoreScreen o-- Rectangle : backButtonBounds
+  KeyboardHandler -up-|> OnKeyListener
+  LoadingScreen -up-|> Screen
+  LoginActivity -up-|> AppCompatActivity
+  LoginActivity o-- DBHelper : dbHelper
+  MainActivity -up-|> AppCompatActivity
+  MultiTouchHandler -up-|> TouchHandler
+  Projectile -up-|> Actor
+  Shield -up-|> Actor
+  Shield o-- ShieldSize : size
+  Ship -up-|> Actor
+  Ship o-- ShipState : status
+  ShipProjectile -up-|> Projectile
+  ShplashActivity -up-|> AppCompatActivity
+  SignUpActivity -up-|> AppCompatActivity
+  SignUpActivity o-- DBHelper : dbHelper
+  SingleTouchHandler -up-|> TouchHandler
+  SpaceInvadersGame -up-|> AndroidGame
+  SpaceInvadersWorld o-- GameState : state
+  SpaceInvadersWorld o-- EnemyShipArmy : enemyShipArmy
+  SpaceInvadersWorld o-- Ship : ship
+  SpaceInvadersWorld o-- WorldListener : worldListener
+  SpaceInvadersWorldRenderer o-- Pixmap : enemyShipGood
+  SpaceInvadersWorldRenderer o-- Pixmap : enemyShipBad
+  SpaceInvadersWorldRenderer o-- Pixmap : enemyShipUgly
+  StartScreen -up-|> Screen
+  StartScreen o-- Rectangle : backgroundBounds
+  StartScreen o-- Rectangle : logoBounds
+  StartScreen o-- Rectangle : soundButtonBounds
+  StartScreen o-- Rectangle : mainMenuBounds
+  StartScreen o-- Rectangle : playMenuBounds
+  StartScreen o-- Rectangle : highscoresMenuBounds
+  StartScreen o-- Rectangle : quitMenuBounds
+  TextStyle o-- Align : align
+  TextStyle o-- Style : style
+  UglyEnemyShip -up-|> EnemyShip
+  UpdateActivity -up-|> AppCompatActivity
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

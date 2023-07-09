@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.spaceinvaders">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,8 +13,41 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SpaceInvaders">
         <activity
+            android:name=".UpdateActivity"
+            android:exported="false"
+            android:parentActivityName=".AdminActivity" />
+        <activity
+            android:name=".AdminAddActivity"
+            android:exported="false"
+            android:parentActivityName=".AdminActivity" />
+        <activity
+            android:name=".ShplashActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".AdminActivity"
+            android:exported="false"
+            android:label="Admin Page"
+            android:parentActivityName=".LoginActivity"/>
+        <activity
+            android:name=".alieninvaders.view.SpaceInvadersGame"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:exported="true"
+            android:label="Alien Invaders"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

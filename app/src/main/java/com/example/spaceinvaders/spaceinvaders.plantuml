@@ -1,0 +1,242 @@
+@startuml
+
+title __SPACEINVADERS's Class Diagram__\n
+
+  package com.example.spaceinvaders {
+    class AdminActivity {
+        ~ recyclerView : RecyclerView
+        ~ add_button : FloatingActionButton
+        ~ im_empty : ImageView
+        ~ tv_no_data : TextView
+        ~ user_id : ArrayList<String>
+        ~ user_username : ArrayList<String>
+        ~ user_email : ArrayList<String>
+        ~ user_password : ArrayList<String>
+        ~ user_phone : ArrayList<String>
+        ~ user_birth_year : ArrayList<String>
+        # onCreate()
+        # onActivityResult()
+        ~ storeDataInArrays()
+        + onCreateOptionsMenu()
+        + onOptionsItemSelected()
+        ~ confirmDialog()
+        + onBackPressed()
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class AdminAddActivity {
+        ~ et_UsernameA : EditText
+        ~ et_PasswordA : EditText
+        ~ et_EmailA : EditText
+        ~ et_PhoneA : EditText
+        ~ et_Birth_YearA : EditText
+        ~ b_add : Button
+        # onCreate()
+        - checkIfValidInfo()
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class CustomAdapter {
+        - context : Context
+        - activity : Activity
+        - user_id : ArrayList
+        - user_username : ArrayList
+        - user_email : ArrayList
+        - user_password : ArrayList
+        - user_phone : ArrayList
+        - user_birth_year : ArrayList
+        ~ CustomAdapter()
+        + onCreateViewHolder()
+        + onBindViewHolder()
+        + getItemCount()
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class MyViewHolder {
+        ~ user_id_txt : TextView
+        ~ user_username_txt : TextView
+        ~ user_email_txt : TextView
+        ~ user_password_txt : TextView
+        ~ user_phone_txt : TextView
+        ~ user_birth_year_txt : TextView
+        ~ mainLayout : LinearLayout
+        + MyViewHolder()
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class DBHelper {
+        {static} + DATABASE_NAME : String
+        {static} + DATABASE_VERSION : int
+        {static} - TABLE_NAME : String
+        {static} - COLUMN_ID : String
+        {static} - USER_USERNAME : String
+        {static} - USER_EMAIL : String
+        {static} - USER_PASSWORD : String
+        {static} - USER_PHONE : String
+        {static} - USER_BIRTH_YEAR : String
+        - context : Context
+        + DBHelper()
+        + onCreate()
+        + onUpgrade()
+        ~ addUser()
+        - isValueExist()
+        - isValueExist1()
+        - isValueExist2()
+        + isUserExists()
+        ~ readAllData()
+        ~ updateData()
+        ~ deleteOneRow()
+        ~ deleteAllData()
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class LoginActivity {
+        ~ b_Login : Button
+        ~ tv_Sign_Up : TextView
+        ~ et_Password : EditText
+        ~ et_Email : EditText
+        ~ preferences : SharedPreferences
+        ~ editor : Editor
+        # onCreate()
+        - sendToSignUpActivity()
+        - ifExist()
+        - sendToMainActivity()
+        + onBackPressed()
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class MainActivity {
+        ~ b_play : Button
+        ~ b_logout : Button
+        ~ b_leader_board : Button
+        ~ preferences : SharedPreferences
+        ~ editor : Editor
+        # onCreate()
+        + onBackPressed()
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class ShplashActivity {
+        {static} - SHPLASH_SCREEN : int
+        ~ topAnim : Animation
+        ~ bottomAnim : Animation
+        ~ img : ImageView
+        ~ txt : TextView
+        # onCreate()
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class SignUpActivity {
+        ~ et_UsernameR : EditText
+        ~ et_EmailR : EditText
+        ~ et_PasswordR : EditText
+        ~ et_PhoneR : EditText
+        ~ et_Birth_YearR : EditText
+        ~ b_SignupR : Button
+        ~ db : SQLiteDatabase
+        ~ context : Context
+        # onCreate()
+        - checkIfValidInfo()
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    class UpdateActivity {
+        ~ et_username_update : EditText
+        ~ et_email_update : EditText
+        ~ et_password_update : EditText
+        ~ et_phone_update : EditText
+        ~ et_birth_year_update : EditText
+        ~ b_update : Button
+        ~ b_delete : Button
+        ~ id : String
+        ~ username : String
+        ~ email : String
+        ~ password : String
+        ~ phone : String
+        ~ birthYear : String
+        # onCreate()
+        ~ getAndIntentData()
+        # onActivityResult()
+        ~ confirmDialog()
+    }
+  }
+  
+
+  AdminActivity -up-|> AppCompatActivity
+  AdminActivity o-- DBHelper : dbHelper
+  AdminActivity o-- CustomAdapter : customAdapter
+  HostCallbacks -up-|> ViewModelStoreOwner
+  HostCallbacks -up-|> OnBackPressedDispatcherOwner
+  HostCallbacks -up-|> ActivityResultRegistryOwner
+  HostCallbacks -up-|> FragmentOnAttachListener
+  HostCallbacks -up-|> FragmentHostCallback
+  AdminAddActivity -up-|> AppCompatActivity
+  HostCallbacks -up-|> ViewModelStoreOwner
+  HostCallbacks -up-|> OnBackPressedDispatcherOwner
+  HostCallbacks -up-|> ActivityResultRegistryOwner
+  HostCallbacks -up-|> FragmentOnAttachListener
+  HostCallbacks -up-|> FragmentHostCallback
+  CustomAdapter -up-|> Adapter
+  CustomAdapter +-down- MyViewHolder
+  MyViewHolder -up-|> ViewHolder
+  DBHelper -up-|> SQLiteOpenHelper
+  LoginActivity -up-|> AppCompatActivity
+  LoginActivity o-- DBHelper : dbHelper
+  HostCallbacks -up-|> ViewModelStoreOwner
+  HostCallbacks -up-|> OnBackPressedDispatcherOwner
+  HostCallbacks -up-|> ActivityResultRegistryOwner
+  HostCallbacks -up-|> FragmentOnAttachListener
+  HostCallbacks -up-|> FragmentHostCallback
+  MainActivity -up-|> AppCompatActivity
+  HostCallbacks -up-|> ViewModelStoreOwner
+  HostCallbacks -up-|> OnBackPressedDispatcherOwner
+  HostCallbacks -up-|> ActivityResultRegistryOwner
+  HostCallbacks -up-|> FragmentOnAttachListener
+  HostCallbacks -up-|> FragmentHostCallback
+  ShplashActivity -up-|> AppCompatActivity
+  HostCallbacks -up-|> ViewModelStoreOwner
+  HostCallbacks -up-|> OnBackPressedDispatcherOwner
+  HostCallbacks -up-|> ActivityResultRegistryOwner
+  HostCallbacks -up-|> FragmentOnAttachListener
+  HostCallbacks -up-|> FragmentHostCallback
+  SignUpActivity -up-|> AppCompatActivity
+  SignUpActivity o-- DBHelper : dbHelper
+  HostCallbacks -up-|> ViewModelStoreOwner
+  HostCallbacks -up-|> OnBackPressedDispatcherOwner
+  HostCallbacks -up-|> ActivityResultRegistryOwner
+  HostCallbacks -up-|> FragmentOnAttachListener
+  HostCallbacks -up-|> FragmentHostCallback
+  UpdateActivity -up-|> AppCompatActivity
+  HostCallbacks -up-|> ViewModelStoreOwner
+  HostCallbacks -up-|> OnBackPressedDispatcherOwner
+  HostCallbacks -up-|> ActivityResultRegistryOwner
+  HostCallbacks -up-|> FragmentOnAttachListener
+  HostCallbacks -up-|> FragmentHostCallback
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

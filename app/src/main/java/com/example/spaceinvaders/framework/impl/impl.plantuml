@@ -1,0 +1,313 @@
+@startuml
+
+title __IMPL's Class Diagram__\n
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AccelerometerHandler {
+            ~ accelX : float
+            ~ accelY : float
+            ~ accelZ : float
+            + AccelerometerHandler()
+            + onAccuracyChanged()
+            + onSensorChanged()
+            + getAccelX()
+            + getAccelY()
+            + getAccelZ()
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidAudio {
+            ~ assets : AssetManager
+            ~ soundPool : SoundPool
+            + AndroidAudio()
+            + newMusic()
+            + newSound()
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidFastRenderView {
+            ~ framebuffer : Bitmap
+            ~ renderThread : Thread
+            ~ holder : SurfaceHolder
+            ~ running : boolean
+            + AndroidFastRenderView()
+            + resume()
+            + run()
+            + pause()
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidFileIO {
+            ~ assets : AssetManager
+            ~ externalStoragePath : String
+            + AndroidFileIO()
+            + readAsset()
+            + readFile()
+            + writeFile()
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        abstract class AndroidGame {
+            ~ wakeLock : WakeLock
+            + onCreate()
+            + onResume()
+            + onPause()
+            + getInput()
+            + getFileIO()
+            + getGraphics()
+            + getAudio()
+            + setScreen()
+            + getCurrentScreen()
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidGraphics {
+            ~ frameBuffer : Bitmap
+            ~ canvas : Canvas
+            ~ paint : Paint
+            ~ srcRect : Rect
+            ~ dstRect : Rect
+            + AndroidGraphics()
+            + newPixmap()
+            + clear()
+            + drawPixel()
+            + drawLine()
+            + drawRect()
+            + drawPixmap()
+            + drawPixmap()
+            + getWidth()
+            + getHeight()
+            + drawText()
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidInput {
+            + AndroidInput()
+            + isKeyPressed()
+            + isTouchDown()
+            + getTouchX()
+            + getTouchY()
+            + getAccelX()
+            + getAccelY()
+            + getAccelZ()
+            + getTouchEvents()
+            + getKeyEvents()
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidMusic {
+            ~ mediaPlayer : MediaPlayer
+            ~ isPrepared : boolean
+            + AndroidMusic()
+            + dispose()
+            + isLooping()
+            + isPlaying()
+            + isStopped()
+            + pause()
+            + play()
+            + setLooping()
+            + setVolume()
+            + stop()
+            + onCompletion()
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidPixmap {
+            ~ bitmap : Bitmap
+            + AndroidPixmap()
+            + getWidth()
+            + getHeight()
+            + getFormat()
+            + dispose()
+            + getColor()
+            + setColor()
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class AndroidSound {
+            ~ soundId : int
+            ~ soundPool : SoundPool
+            + AndroidSound()
+            + play()
+            + dispose()
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class KeyboardHandler {
+            ~ pressedKeys : boolean[]
+            ~ keyEventPool : Pool<KeyEvent>
+            ~ keyEventsBuffer : List<KeyEvent>
+            ~ keyEvents : List<KeyEvent>
+            + KeyboardHandler()
+            + onKey()
+            + isKeyPressed()
+            + getKeyEvents()
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class MultiTouchHandler {
+            ~ isTouched : boolean[]
+            ~ touchX : int[]
+            ~ touchY : int[]
+            ~ touchEventPool : Pool<TouchEvent>
+            ~ touchEvents : List<TouchEvent>
+            ~ touchEventsBuffer : List<TouchEvent>
+            ~ scaleX : float
+            ~ scaleY : float
+            + MultiTouchHandler()
+            + onTouch()
+            + isTouchDown()
+            + getTouchX()
+            + getTouchY()
+            + getTouchEvents()
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        class SingleTouchHandler {
+            ~ isTouched : boolean
+            ~ touchX : int
+            ~ touchY : int
+            ~ touchEventPool : Pool<TouchEvent>
+            ~ touchEvents : List<TouchEvent>
+            ~ touchEventsBuffer : List<TouchEvent>
+            ~ scaleX : float
+            ~ scaleY : float
+            + SingleTouchHandler()
+            + onTouch()
+            + isTouchDown()
+            + getTouchX()
+            + getTouchY()
+            + getTouchEvents()
+        }
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.framework {
+      package com.example.spaceinvaders.framework.impl {
+        interface TouchHandler {
+            {abstract} + isTouchDown()
+            {abstract} + getTouchX()
+            {abstract} + getTouchY()
+            {abstract} + getTouchEvents()
+        }
+      }
+    }
+  }
+  
+
+  AccelerometerHandler -up-|> SensorEventListener
+  AndroidAudio -up-|> Audio
+  AndroidFastRenderView -up-|> Runnable
+  AndroidFastRenderView -up-|> SurfaceView
+  AndroidFastRenderView o-- AndroidGame : game
+  BaseSavedState -up-|> AbsSavedState
+  AndroidFileIO -up-|> FileIO
+  AndroidGame -up-|> Game
+  AndroidGame -up-|> Activity
+  AndroidGame o-- AndroidFastRenderView : renderView
+  AndroidGame o-- Graphics : graphics
+  AndroidGame o-- Audio : audio
+  AndroidGame o-- Input : input
+  AndroidGame o-- FileIO : fileIO
+  AndroidGame o-- Screen : screen
+  AndroidGraphics -up-|> Graphics
+  AndroidGraphics o-- AndroidFileIO : fileIO
+  AndroidInput -up-|> Input
+  AndroidInput o-- AccelerometerHandler : accelHandler
+  AndroidInput o-- KeyboardHandler : keyHandler
+  AndroidInput o-- TouchHandler : touchHandler
+  AndroidMusic -up-|> Music
+  AndroidMusic -up-|> OnCompletionListener
+  AndroidPixmap -up-|> Pixmap
+  AndroidPixmap o-- PixmapFormat : format
+  AndroidSound -up-|> Sound
+  KeyboardHandler -up-|> OnKeyListener
+  MultiTouchHandler -up-|> TouchHandler
+  SingleTouchHandler -up-|> TouchHandler
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

@@ -1,0 +1,277 @@
+.@startuml
+
+title __MODEL's Class Diagram__\n
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class BadEnemyShip {
+          + BadEnemyShip()
+          + getScore()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      abstract class EnemyShip {
+          - lastShot : long
+          + EnemyShip()
+          {abstract} + getScore()
+          ~ moveLeft()
+          ~ moveRight()
+          + moveForward()
+          + shoot()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class EnemyShipArmy {
+          - speedX : float
+          - speedY : float
+          - enemyShips : List<EnemyShip>
+          - direction : String
+          - speedTickMove : int
+          - tick : int
+          + EnemyShipArmy()
+          + move()
+          - moveLeft()
+          - moveRight()
+          - changeDirection()
+          + update()
+          + isOnEarth()
+          + increaseSpeed()
+          + reset()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class EnemyShipProjectile {
+          + EnemyShipProjectile()
+          + move()
+          + equals()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class GoodEnemyShip {
+          + GoodEnemyShip()
+          + getScore()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      abstract class Projectile {
+          # active : boolean
+          + Projectile()
+          {abstract} + move()
+          + kill()
+          + isInactive()
+          + equals()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class Settings {
+          {static} + soundEnabled : boolean
+          {static} + highscores : int[]
+          {static} + load()
+          {static} + save()
+          {static} + addScore()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class Shield {
+          {static} + LARGE_SHIELD_WIDTH : int
+          {static} + LARGE_SHIELD_HEIGHT : int
+          {static} + MEDIUM_SHIELD_WIDTH : int
+          {static} + MEDIUM_SHIELD_HEIGHT : int
+          {static} + SMALL_SHIELD_WIDTH : int
+          {static} + SMALL_SHIELD_HEIGHT : int
+          - alive : boolean
+          + getSize()
+          + Shield()
+          + reduce()
+          + isAlive()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      enum ShieldSize {
+        LARGE
+        MEDIUM
+        SMALL
+        NONE
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class Ship {
+          {static} - SHIP_EXPLOSION_TIME : long
+          - lives : int
+          - lastShot : long
+          - lastMovement : long
+          - stateTime : float
+          + Ship()
+          + exploding()
+          + moveLeft()
+          + moveRight()
+          + shoot()
+          + isAlive()
+          + isExploding()
+          + kill()
+          + destroy()
+          + getLives()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      enum ShipState {
+        Alive
+        Exploding
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class ShipProjectile {
+          + ShipProjectile()
+          + move()
+          + equals()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class SpaceInvadersWorld {
+          {static} + CELL_WIDTH : int
+          {static} + CELL_HEIGHT : int
+          {static} + MATRIX_WIDTH : int
+          {static} + MATRIC_HEIGHT : int
+          {static} + WORLD_WIDTH : int
+          {static} + WORLD_HEIGHT : int
+          {static} + EARTH_LEVEL : int
+          - level : int
+          - score : int
+          - timer : int
+          - enemyShips : List<EnemyShip>
+          - projectiles : List<Projectile>
+          - shields : List<Shield>
+          {static} - instance : SpaceInvadersWorld
+          + setWorldListener()
+          + getProjectiles()
+          + getShields()
+          + getAliens()
+          + getShip()
+          + getLevel()
+          - SpaceInvadersWorld()
+          {static} + getInstance()
+          + update()
+          + getBounds()
+          + invasion()
+          + clear()
+          + resetLevel()
+          - detectCollisions()
+          + getState()
+          + setState()
+          + getScore()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      interface WorldListener {
+          {abstract} + explosion()
+          {abstract} + laserClash()
+          {abstract} + shieldImpact()
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      enum GameState {
+        Ready
+        Running
+        Paused
+        GameOver
+      }
+    }
+  }
+  
+
+  package com.example.spaceinvaders {
+    package com.example.spaceinvaders.alieninvaders.model {
+      class UglyEnemyShip {
+          + UglyEnemyShip()
+          + getScore()
+      }
+    }
+  }
+  
+
+  BadEnemyShip -up-|> EnemyShip
+  EnemyShip -up-|> Actor
+  EnemyShipArmy -up-|> Actor
+  EnemyShipProjectile -up-|> Projectile
+  GoodEnemyShip -up-|> EnemyShip
+  Projectile -up-|> Actor
+  Shield -up-|> Actor
+  Shield o-- ShieldSize : size
+  Shield +-down- ShieldSize
+  Ship -up-|> Actor
+  Ship o-- ShipState : status
+  Ship +-down- ShipState
+  ShipProjectile -up-|> Projectile
+  SpaceInvadersWorld o-- GameState : state
+  SpaceInvadersWorld o-- EnemyShipArmy : enemyShipArmy
+  SpaceInvadersWorld o-- Ship : ship
+  SpaceInvadersWorld o-- WorldListener : worldListener
+  SpaceInvadersWorld +-down- WorldListener
+  SpaceInvadersWorld +-down- GameState
+  UglyEnemyShip -up-|> EnemyShip
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

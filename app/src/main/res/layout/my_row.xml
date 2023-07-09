@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainLayout">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/Text_View_Id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/star_wars_font"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/Text_View_Username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/star_wars_font"
+                android:text="Username"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/Text_View_Id"
+                app:layout_constraintTop_toTopOf="@+id/Text_View_Id" />
+
+            <TextView
+                android:id="@+id/Text_View_Email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/star_wars_font"
+                android:text="Email"
+                app:layout_constraintStart_toStartOf="@+id/Text_View_Username"
+                app:layout_constraintTop_toBottomOf="@+id/Text_View_Username" />
+
+            <TextView
+                android:id="@+id/Text_View_Password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pasword"
+                android:fontFamily="@font/star_wars_font"
+
+                app:layout_constraintStart_toStartOf="@+id/Text_View_Email"
+                app:layout_constraintTop_toBottomOf="@+id/Text_View_Email" />
+
+            <TextView
+                android:id="@+id/Text_View_Birth_Year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/star_wars_font"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:text="Birth Year"
+                app:layout_constraintStart_toEndOf="@+id/Text_View_Phone"
+                app:layout_constraintTop_toBottomOf="@+id/Text_View_Username" />
+
+            <TextView
+                android:id="@+id/Text_View_Phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:text="Phone"
+                android:fontFamily="@font/star_wars_font"
+                app:layout_constraintStart_toEndOf="@+id/Text_View_Password"
+                app:layout_constraintTop_toBottomOf="@+id/Text_View_Username" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
